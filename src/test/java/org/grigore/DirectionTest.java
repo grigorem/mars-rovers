@@ -19,4 +19,11 @@ public class DirectionTest extends TestCase {
     public void testWest() {
         assertEquals(Direction.WEST.name(), "WEST");
     }
+
+    public void testNext() {
+        assertEquals(Direction.WEST.next(), Direction.NORTH);
+    }
+    public void testPrevious() {
+        assertEquals(Direction.NORTH.previous(), Direction.WEST);
+    }
 }

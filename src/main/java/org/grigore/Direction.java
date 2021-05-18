@@ -1,10 +1,20 @@
 package org.grigore;
 
 public enum Direction {
-    NORTH,
+    NORTH {
+        @Override
+        public Direction previous() {
+            return values()[values().length - 1];
+        }
+    },
     EAST,
     SOUTH,
-    WEST;
+    WEST {
+        @Override
+        public Direction next() {
+            return values()[0];
+        }
+    };
 
     public Direction next() {
         return values()[ordinal() + 1];
