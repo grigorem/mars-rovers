@@ -15,9 +15,6 @@ public class Plateau {
     public static Plateau getInstance(int x, int y) {
         if (plateau == null) {
             plateau = new Plateau(x, y);
-        } else {
-            plateau.setxLimit(x);
-            plateau.setyLimit(y);
         }
         return plateau;
     }
@@ -27,6 +24,10 @@ public class Plateau {
             plateau = new Plateau(0, 0); // create an empty plateau
         }
         return plateau;
+    }
+
+    public static void deleteInstance() {
+        plateau = null;
     }
 
     /* default getters and setters */
