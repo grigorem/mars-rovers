@@ -1,29 +1,37 @@
 package org.grigore;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class DirectionTest extends TestCase {
+public class DirectionTest {
 
+    @Test
     public void testNorth() {
-        assertEquals(Direction.NORTH.name(), "NORTH");
+        Assert.assertEquals(Direction.NORTH.name(), "NORTH");
     }
 
+    @Test
     public void testEast() {
-        assertEquals(Direction.EAST.name(), "EAST");
+        Assert.assertEquals(Direction.EAST.name(), "EAST");
     }
 
+    @Test
     public void testSouth() {
-        assertEquals(Direction.SOUTH.name(), "SOUTH");
+        Assert.assertEquals(Direction.SOUTH.name(), "SOUTH");
     }
 
+    @Test
     public void testWest() {
-        assertEquals(Direction.WEST.name(), "WEST");
+        Assert.assertEquals(Direction.WEST.name(), "WEST");
     }
 
+    @Test
     public void testNext() {
-        assertEquals(Direction.WEST.next(), Direction.NORTH);
+        Assert.assertEquals(Direction.WEST.next(), Direction.NORTH);
     }
+
+    @Test
     public void testPrevious() {
-        assertEquals(Direction.NORTH.previous(), Direction.WEST);
+        Assert.assertEquals(Direction.NORTH.previous(), Direction.WEST);
     }
 }
