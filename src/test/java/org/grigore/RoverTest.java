@@ -31,6 +31,6 @@ public class RoverTest extends TestCase {
 
     public void testGetOrientation() {
         Rover rover = new Rover(1, 1, 'N');
-        assertEquals(rover.getOrientation(), 'N');
+        assertEquals(rover.getDirection(), Direction.NORTH);
     }
 }

@@ -3,13 +3,13 @@ package org.grigore;
 public class Rover {
     int x;
     int y;
-    char orientation;
+    Direction direction;
 
     /* constructors */
-    public Rover(int x, int y, char orientation) {
+    public Rover(int x, int y, char direction) {
         setX(x);
         setY(y);
-        setOrientation(orientation);
+        setDirection(Direction.getFromChar(direction));
     }
 
     /* public methods */
@@ -42,11 +42,11 @@ public class Rover {
         this.y = y;
     }
 
-    public char getOrientation() {
-        return orientation;
+    public Direction getDirection() {
+        return direction;
     }
 
-    public void setOrientation(char orientation) {
-        this.orientation = orientation;
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
 }
