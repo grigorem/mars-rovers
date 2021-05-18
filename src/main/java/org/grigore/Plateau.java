@@ -3,13 +3,31 @@ package org.grigore;
 public class Plateau {
     int xLimit;
     int yLimit;
+    static Plateau plateau = null;
+
+    /* constructors */
+    private Plateau(int x, int y) {
+        setxLimit(x);
+        setyLimit(y);
+    }
+
+    /* public methods */
+    public static Plateau getInstance(int x, int y) {
+        if (plateau == null) {
+            plateau = new Plateau(x, y);
+        } else {
+            plateau.setxLimit(x);
+            plateau.setyLimit(y);
+        }
+        return plateau;
+    }
 
     /* default getters and setters */
     public int getxLimit() {
         return xLimit;
     }
 
-    public void setxLimit(int xLimit) {
+    private void setxLimit(int xLimit) {
         this.xLimit = xLimit;
     }
 
@@ -17,7 +35,7 @@ public class Plateau {
         return yLimit;
     }
 
-    public void setyLimit(int yLimit) {
+    private void setyLimit(int yLimit) {
         this.yLimit = yLimit;
     }
 }
