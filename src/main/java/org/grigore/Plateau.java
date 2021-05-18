@@ -22,6 +22,13 @@ public class Plateau {
         return plateau;
     }
 
+    public static Plateau getInstance() {
+        if (plateau == null) {
+            plateau = new Plateau(0, 0); // create an empty plateau
+        }
+        return plateau;
+    }
+
     /* default getters and setters */
     public int getxLimit() {
         return xLimit;
