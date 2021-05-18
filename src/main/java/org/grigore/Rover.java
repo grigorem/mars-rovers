@@ -13,16 +13,16 @@ public class Rover {
     }
 
     /* public methods */
-    public boolean move() {
-        return true;
+    public void move() {
+        MovementController.move(this);
     }
 
-    public boolean turnLeft() {
-        return true;
+    public void turnLeft() {
+        MovementController.turnLeft(this);
     }
 
-    public boolean turnRight() {
-        return true;
+    public void turnRight() {
+        MovementController.turnRight(this);
     }
 
     /* default getters and setters */
