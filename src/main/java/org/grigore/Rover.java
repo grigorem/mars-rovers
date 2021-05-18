@@ -5,6 +5,26 @@ public class Rover {
     int y;
     char orientation;
 
+    /* constructors */
+    public Rover(int x, int y, char orientation) {
+        setX(x);
+        setY(y);
+        setOrientation(orientation);
+    }
+
+    /* public methods */
+    public boolean move() {
+        return true;
+    }
+
+    public boolean turnLeft() {
+        return true;
+    }
+
+    public boolean turnRight() {
+        return true;
+    }
+
     /* default getters and setters */
     public int getX() {
         return x;
