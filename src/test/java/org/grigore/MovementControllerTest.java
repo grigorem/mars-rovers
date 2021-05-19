@@ -40,7 +40,10 @@ public class MovementControllerTest extends TestCase {
         MovementController.turnRight(rover);
         MovementController.move(rover);
 
-        assertTrue((rover.getX() == 5) && (rover.getY() == 1) && (rover.getDirection() == Direction.EAST));
+        assertTrue(
+                rover.getX() == 5 &&
+                rover.getY() == 1 &&
+                rover.getDirection() == Direction.EAST);
     }
 
     public void testComplexMovement2() {
@@ -57,6 +60,46 @@ public class MovementControllerTest extends TestCase {
         MovementController.move(rover);
         MovementController.move(rover);
 
-        assertTrue(rover.getX() == 1 && rover.getY() == 3 && rover.getDirection() == Direction.NORTH);
+        assertTrue(
+                rover.getX() == 1 &&
+                rover.getY() == 3 &&
+                rover.getDirection() == Direction.NORTH);
+    }
+
+    public void testTwoRovers() {
+        Plateau plateau = Plateau.getInstance(5, 5);
+        Rover rover1 = new Rover(1, 2, 'N');
+        Rover rover2 = new Rover(3, 3, 'E');
+
+        // rover 1 movement
+        MovementController.turnLeft(rover1);
+        MovementController.move(rover1);
+        MovementController.turnLeft(rover1);
+        MovementController.move(rover1);
+        MovementController.turnLeft(rover1);
+        MovementController.move(rover1);
+        MovementController.turnLeft(rover1);
+        MovementController.move(rover1);
+        MovementController.move(rover1);
+
+        // rover 2 movement
+        MovementController.move(rover2);
+        MovementController.move(rover2);
+        MovementController.turnRight(rover2);
+        MovementController.move(rover2);
+        MovementController.move(rover2);
+        MovementController.turnRight(rover2);
+        MovementController.move(rover2);
+        MovementController.turnRight(rover2);
+        MovementController.turnRight(rover2);
+        MovementController.move(rover2);
+
+        assertTrue(
+                rover1.getX() == 1 &&
+                rover1.getY() == 3 &&
+                rover1.getDirection() == Direction.NORTH &&
+                rover2.getX() == 5 &&
+                rover2.getY() == 1 &&
+                rover2.getDirection() == Direction.EAST);
     }
 }
