@@ -28,7 +28,7 @@ In order to control a rover, NASA sends a simple string of letters. The possible
 2. Apache Maven (Installation guide: https://maven.apache.org/install.html)
 3. JDK 1.8 (Installation guide: https://docs.oracle.com/en/java/javase/11/install/installation-jdk-microsoft-windows-platforms.html)
 
-### Rnning it
+### Run the tests
 1. Clone the repository
 ```sh
 git clone https://github.com/grigorem/mars-rovers.git
