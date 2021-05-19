@@ -18,8 +18,8 @@ public class MovementController {
                 break;
         }
         Plateau plateau = Plateau.getInstance();
-        rover.setX(rover.getX() % plateau.getxLimit());
-        rover.setY(rover.getY() % plateau.getyLimit());
+        rover.setX(rover.getX() % (plateau.getxLimit() + 1));
+        rover.setY(rover.getY() % (plateau.getyLimit() + 1));
     }
 
     public static void turnLeft(Rover rover) {
