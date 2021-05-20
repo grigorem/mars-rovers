@@ -27,14 +27,14 @@ In order to control a rover, NASA sends a simple string of letters. The possible
   </tr>
 </table>
 
-## How to test the project
+## How to run it in your IDE
 
 ### Prerequisites
 1. Git (Installation guide: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 2. Apache Maven (Installation guide: https://maven.apache.org/install.html)
 3. JDK 1.8 (Installation guide: https://docs.oracle.com/en/java/javase/11/install/installation-jdk-microsoft-windows-platforms.html)
 
-### Run the tests
+### Steps to run it
 1. Clone the repository
 ```sh
 git clone https://github.com/grigorem/mars-rovers.git
@@ -43,4 +43,32 @@ git clone https://github.com/grigorem/mars-rovers.git
 3. Run the maven test command in terminal/cmd, working directory being the cloned repository
 ```sh
 mvn test
+```
+
+## How to run it as Docker image
+
+### Prerequisites
+1. Docker (https://docs.docker.com/docker-for-windows/install)
+
+### Run it
+1. Clone the image
+```sh
+docker pull grigorem/mars-rovers
+```
+2. Start the image
+```sh
+docker run -it grigorem/mars-rovers
+```
+3. Run the application
+* Console interactive
+```sh
+java -cp mars-rovers-0.1.jar org.grigore.App
+```
+* From example files
+```sh
+java -cp mars-rovers-0.1.jar org.grigore.App /usr/local/mars-rovers/resources/example_1.txt
+```
+or
+```sh
+java -cp mars-rovers-0.1.jar org.grigore.App /usr/local/mars-rovers/resources/example_2.txt
 ```
