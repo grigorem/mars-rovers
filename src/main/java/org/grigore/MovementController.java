@@ -2,24 +2,27 @@ package org.grigore;
 
 public class MovementController {
 
+    /* public methods */
     public static void move(Rover rover) {
+        int roverX = rover.getX();
+        int roverY = rover.getY();
         switch (rover.getDirection()) {
             case NORTH:
-                rover.setY(rover.getY() + 1);
+                roverY++;
                 break;
             case EAST:
-                rover.setX(rover.getX() + 1);
+                roverX++;
                 break;
             case SOUTH:
-                rover.setY(rover.getY() - 1);
+                roverY--;
                 break;
             case WEST:
-                rover.setX(rover.getX() - 1);
+                roverX--;
                 break;
         }
         Plateau plateau = Plateau.getInstance();
-        rover.setX(rover.getX() % (plateau.getxLimit() + 1));
-        rover.setY(rover.getY() % (plateau.getyLimit() + 1));
+        rover.setX(limitValue(roverX, 0, plateau.getxLimit()));
+        rover.setY(limitValue(roverY, 0, plateau.getyLimit()));
     }
 
     public static void turnLeft(Rover rover) {
@@ -28,5 +31,13 @@ public class MovementController {
 
     public static void turnRight(Rover rover) {
         rover.setDirection(rover.getDirection().next());
+    }
+
+    /* private methods */
+    private static int limitValue(int value, int min, int max) {
+        if (value < min) {
+            return min;
+        }
+        return Math.min(value, max);
     }
 }
