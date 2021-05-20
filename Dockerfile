@@ -6,5 +6,6 @@ RUN mvn clean package
 
 FROM openjdk:8-jre-alpine
 COPY --from=build /usr/local/mars-rovers/target /usr/local/mars-rovers/target
+COPY --from=build /usr/local/mars-rovers/src/main/resources /usr/local/mars-rovers/resources
 WORKDIR /usr/local/mars-rovers/target
-CMD ["java", "-cp", "mars-rovers-0.1.jar", "org.grigore.App"]
+RUN ["/bin/sh"]
