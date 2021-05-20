@@ -6,7 +6,7 @@ public class Plateau {
     private int xLimit;
     private int yLimit;
     private static Plateau plateau = null;
-    private ArrayList<Rover> rovers;
+    private ArrayList<Rover> rovers = new ArrayList<>();
 
     /* constructors */
     private Plateau(int x, int y) {
