@@ -21,8 +21,13 @@ public class MovementController {
                 break;
         }
         Plateau plateau = Plateau.getInstance();
-        rover.setX(limitValue(roverX, 0, plateau.getxLimit()));
-        rover.setY(limitValue(roverY, 0, plateau.getyLimit()));
+        roverX = limitValue(roverX, 0, plateau.getxLimit());
+        roverY = limitValue(roverY, 0, plateau.getyLimit());
+
+        if (positionIsEmpty(plateau, roverX, roverY)) {
+            rover.setX(roverX);
+            rover.setY(roverY);
+        }
     }
 
     public static void turnLeft(Rover rover) {
@@ -39,5 +44,14 @@ public class MovementController {
             return min;
         }
         return Math.min(value, max);
+    }
+
+    private static boolean positionIsEmpty(Plateau plateau, int x, int y) {
+        for (Rover rover: plateau.getRovers()) {
+            if (rover.getX() == x && rover.getY() == y) {
+                return false;
+            }
+        }
+        return true;
     }
 }
