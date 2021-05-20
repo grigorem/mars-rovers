@@ -14,7 +14,7 @@ In order to control a rover, NASA sends a simple string of letters. The possible
 * All the commands from the command center are in a valid format
 * Initial positions of rovers cannot be the same
 
-## Technologies
+## Tech stack
 
 <table>
   <tr>
@@ -23,6 +23,12 @@ In order to control a rover, NASA sends a simple string of letters. The possible
     </td>
     <td>
       <img src="https://i.imgur.com/tmQ1HQl.jpg" alt="JUnit"/>
+    </td>
+    <td>
+      <img src="https://i.imgur.com/uYS4YpF.jpg" alt="IntelliJ Idea"/>
+    </td>
+    <td>
+      <img src="https://i.imgur.com/KUwOVP7.jpg" alt="Docker"/>
     </td>
   </tr>
 </table>
