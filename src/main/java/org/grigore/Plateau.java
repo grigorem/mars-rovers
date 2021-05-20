@@ -1,9 +1,12 @@
 package org.grigore;
 
+import java.util.ArrayList;
+
 public class Plateau {
-    int xLimit;
-    int yLimit;
-    static Plateau plateau = null;
+    private int xLimit;
+    private int yLimit;
+    private static Plateau plateau = null;
+    private ArrayList<Rover> rovers;
 
     /* constructors */
     private Plateau(int x, int y) {
@@ -30,6 +33,10 @@ public class Plateau {
         plateau = null;
     }
 
+    public void addRover(Rover rover) {
+        rovers.add(rover);
+    }
+
     /* default getters and setters */
     public int getxLimit() {
         return xLimit;
@@ -45,5 +52,13 @@ public class Plateau {
 
     private void setyLimit(int yLimit) {
         this.yLimit = yLimit;
+    }
+
+    public ArrayList<Rover> getRovers() {
+        return rovers;
+    }
+
+    public void setRovers(ArrayList<Rover> rovers) {
+        this.rovers = rovers;
     }
 }

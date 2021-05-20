@@ -1,9 +1,9 @@
 package org.grigore;
 
 public class Rover {
-    int x;
-    int y;
-    Direction direction;
+    private int x;
+    private int y;
+    private Direction direction;
 
     /* constructors */
     public Rover(int x, int y, char direction) {
@@ -28,7 +28,7 @@ public class Rover {
     /* overridden methods */
     @Override
     public String toString() {
-        return Integer.toString(this.x) + " " + Integer.toString(this.y) + " " + direction.name().charAt(0);
+        return this.x + " " + this.y + " " + direction.name().charAt(0);
     }
 
     /* default getters and setters */
