@@ -1,5 +1,6 @@
 package org.grigore;
 
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,7 +59,7 @@ public class CommandProcessor {
     }
 
     private static String clean(String command) {
-        StringBuilder temp = new StringBuilder(command);
+        StringBuilder temp = new StringBuilder(command.toUpperCase());
         temp.replace(0, temp.length(), temp.toString().replaceAll("^\\s+", ""));
         temp.replace(0, temp.length(), temp.toString().replaceAll("\\s+$", ""));
         temp.replace(0, temp.length(), temp.toString().replaceAll(" *\\r?\\n *", "\n"));
