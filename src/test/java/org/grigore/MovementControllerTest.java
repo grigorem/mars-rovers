@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 public class MovementControllerTest extends TestCase {
 
     public void testMove() {
+        Plateau.deleteInstance();
         Plateau plateau = Plateau.getInstance(10, 10);
         Rover rover = new Rover(4, 4, 'S');
         MovementController.move(rover);
@@ -12,6 +13,7 @@ public class MovementControllerTest extends TestCase {
     }
 
     public void testTurnLeft() {
+        Plateau.deleteInstance();
         Plateau plateau = Plateau.getInstance(10, 10);
         Rover rover = new Rover(4, 4, 'W');
         MovementController.turnLeft(rover);
@@ -19,6 +21,7 @@ public class MovementControllerTest extends TestCase {
     }
 
     public void testTurnRight() {
+        Plateau.deleteInstance();
         Plateau plateau = Plateau.getInstance(10, 10);
         Rover rover = new Rover(4, 4, 'S');
         MovementController.turnRight(rover);
@@ -26,6 +29,7 @@ public class MovementControllerTest extends TestCase {
     }
 
     public void testComplexMovement1() {
+        Plateau.deleteInstance();
         Plateau plateau = Plateau.getInstance(5, 5);
         Rover rover = new Rover(3, 3, 'E');
 
@@ -47,6 +51,7 @@ public class MovementControllerTest extends TestCase {
     }
 
     public void testComplexMovement2() {
+        Plateau.deleteInstance();
         Plateau plateau = Plateau.getInstance(5, 5);
         Rover rover = new Rover(1, 2, 'N');
 
@@ -67,6 +72,7 @@ public class MovementControllerTest extends TestCase {
     }
 
     public void testTwoRovers() {
+        Plateau.deleteInstance();
         Plateau plateau = Plateau.getInstance(5, 5);
         Rover rover1 = new Rover(1, 2, 'N');
         Rover rover2 = new Rover(3, 3, 'E');
