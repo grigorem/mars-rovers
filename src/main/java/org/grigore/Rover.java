@@ -25,6 +25,12 @@ public class Rover {
         MovementController.turnRight(this);
     }
 
+    /* overridden methods */
+    @Override
+    public String toString() {
+        return Integer.toString(this.x) + " " + Integer.toString(this.y) + " " + direction.name().charAt(0);
+    }
+
     /* default getters and setters */
     public int getX() {
         return x;
