@@ -8,6 +8,12 @@ In order to control a rover, NASA sends a simple string of letters. The possible
 * 'L' and 'R' makes the rover spin 90 degrees left or right respectively, without moving from its current spot.
 * 'M' means move forward one grid point, and maintain the same heading.
 
+## Assumptions
+* The plateau is finite (no wrap-up to the other side)
+* The rovers can collide with each other
+* All the commands from the command center are in a valid format
+* Initial positions of rovers cannot be the same
+
 ## Technologies
 
 <table>
