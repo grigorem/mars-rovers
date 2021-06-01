@@ -12,7 +12,7 @@ public class CommandProcessor {
         String tempCommand = clean(inputCommands);
 
         // isolate plateau X and Y, and the rovers info
-        Pattern pattern = Pattern.compile("^(?<x>\\d+) +(?<y>\\d+)\\n(?<rovers>.+)", Pattern.DOTALL);
+        Pattern pattern = Pattern.compile("^(?<x>\\d+) +(?<y>\\d+)\\n(?<rovers>.+)", Pattern.DOTALL); // extract plateau X and Y and isolate rovers commands
         Matcher matcher = pattern.matcher(tempCommand);
 
         if (!matcher.find()) {
@@ -26,7 +26,7 @@ public class CommandProcessor {
         String roversDetails = matcher.group("rovers");
 
         // extract each rover's info
-        pattern = Pattern.compile("(?<x>\\d+) +(?<y>\\d+) +(?<direction>[NESW])\\n(?<movement>[LRM]+)");
+        pattern = Pattern.compile("(?<x>\\d+) +(?<y>\\d+) +(?<direction>[NESW])\\n(?<movement>[LRM]+)"); // isolate each rover X and Y and its commands
         matcher = pattern.matcher(roversDetails);
 
         ArrayList<String> commands = new ArrayList<>();
@@ -72,10 +72,10 @@ public class CommandProcessor {
 
     private static String clean(String command) {
         StringBuilder temp = new StringBuilder(command.toUpperCase());
-        temp.replace(0, temp.length(), temp.toString().replaceAll("^\\s+", ""));
-        temp.replace(0, temp.length(), temp.toString().replaceAll("\\s+$", ""));
-        temp.replace(0, temp.length(), temp.toString().replaceAll(" *\\r?\\n *", "\n"));
-        temp.replace(0, temp.length(), temp.toString().replaceAll(" {2,}", "\n"));
+        temp.replace(0, temp.length(), temp.toString().replaceAll("^\\s+", "")); // delete spaces at the start of the string
+        temp.replace(0, temp.length(), temp.toString().replaceAll("\\s+$", "")); // delete the spaces at the end of the string
+        temp.replace(0, temp.length(), temp.toString().replaceAll(" *\\r?\\n *", "\n")); // delete multiple newlines
+        temp.replace(0, temp.length(), temp.toString().replaceAll(" {2,}", " ")); // delete multiple spaces
         return temp.toString();
     }
 }
