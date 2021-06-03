@@ -2,11 +2,17 @@ package org.grigore;
 
 import junit.framework.TestCase;
 
+import static org.junit.Assert.fail;
+
 public class MovementControllerTest extends TestCase {
 
     public void testMove() {
         Plateau.deleteInstance();
-        Plateau plateau = Plateau.getInstance(10, 10);
+        try {
+            Plateau.getInstance(10, 10);
+        } catch (InvalidPlateauLimitsException e){
+            fail();
+        }
         Rover rover = new Rover(4, 4, 'S');
         MovementController.move(rover);
         assertEquals(rover.getY(), 3);
@@ -14,7 +20,11 @@ public class MovementControllerTest extends TestCase {
 
     public void testTurnLeft() {
         Plateau.deleteInstance();
-        Plateau plateau = Plateau.getInstance(10, 10);
+        try {
+            Plateau.getInstance(10, 10);
+        } catch (InvalidPlateauLimitsException e){
+            fail();
+        }
         Rover rover = new Rover(4, 4, 'W');
         MovementController.turnLeft(rover);
         assertEquals(rover.getDirection(), Direction.SOUTH);
@@ -22,7 +32,11 @@ public class MovementControllerTest extends TestCase {
 
     public void testTurnRight() {
         Plateau.deleteInstance();
-        Plateau plateau = Plateau.getInstance(10, 10);
+        try {
+            Plateau.getInstance(10, 10);
+        } catch (InvalidPlateauLimitsException e){
+            fail();
+        }
         Rover rover = new Rover(4, 4, 'S');
         MovementController.turnRight(rover);
         assertEquals(rover.getDirection(), Direction.WEST);
@@ -30,7 +44,11 @@ public class MovementControllerTest extends TestCase {
 
     public void testComplexMovement1() {
         Plateau.deleteInstance();
-        Plateau plateau = Plateau.getInstance(5, 5);
+        try {
+            Plateau.getInstance(5, 5);
+        } catch (InvalidPlateauLimitsException e){
+            fail();
+        }
         Rover rover = new Rover(3, 3, 'E');
 
         MovementController.move(rover);
@@ -52,7 +70,11 @@ public class MovementControllerTest extends TestCase {
 
     public void testComplexMovement2() {
         Plateau.deleteInstance();
-        Plateau plateau = Plateau.getInstance(5, 5);
+        try {
+            Plateau.getInstance(5, 5);
+        } catch (InvalidPlateauLimitsException e){
+            fail();
+        }
         Rover rover = new Rover(1, 2, 'N');
 
         MovementController.turnLeft(rover);
@@ -73,7 +95,11 @@ public class MovementControllerTest extends TestCase {
 
     public void testTwoRovers() {
         Plateau.deleteInstance();
-        Plateau plateau = Plateau.getInstance(5, 5);
+        try {
+            Plateau.getInstance(5, 5);
+        } catch (InvalidPlateauLimitsException e){
+            fail();
+        }
         Rover rover1 = new Rover(1, 2, 'N');
         Rover rover2 = new Rover(3, 3, 'E');
 
@@ -111,7 +137,11 @@ public class MovementControllerTest extends TestCase {
 
     public void testGoingOutOfPlateauBoundaries() {
         Plateau.deleteInstance();
-        Plateau.getInstance(5, 5);
+        try {
+            Plateau.getInstance(5, 5);
+        } catch (InvalidPlateauLimitsException e){
+            fail();
+        }
         Rover rover = new Rover(1, 1, 'W');
         MovementController.move(rover); // 0
         MovementController.move(rover); // -1 -> should be 0
