@@ -40,13 +40,19 @@ public class CommandProcessor {
         matcher = pattern.matcher(roversDetails);
 
         ArrayList<String> commands = new ArrayList<>();
+        int roverCount = 0;
         while (matcher.find()) {
+            roverCount++;
             int roverX = Integer.parseInt(matcher.group("x"));
             int roverY = Integer.parseInt(matcher.group("y"));
             char roverDirection = matcher.group("direction").charAt(0);
             String movement = matcher.group("movement");
 
-            plateau.addRover(new Rover(roverX, roverY, roverDirection));
+            try {
+                plateau.addRover(new Rover(roverX, roverY, roverDirection));
+            } catch (RoverPositionException e) {
+                return e.toString();
+            }
             commands.add(movement);
         }
 

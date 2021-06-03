@@ -44,7 +44,13 @@ public class Plateau {
         plateau = null;
     }
 
-    public void addRover(Rover rover) {
+    public void addRover(Rover rover) throws RoverPositionException {
+        for (Rover existingRover : rovers) {
+            if ((existingRover.getY() == rover.getY()
+                    && existingRover.getX() == rover.getX())) {
+                throw new RoverPositionException("Initial position of rover is the same with an existing rover");
+            }
+        }
         rovers.add(rover);
     }
 
