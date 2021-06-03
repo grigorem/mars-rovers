@@ -1,7 +1,7 @@
 package org.grigore;
 
 import java.util.ArrayList;
-import java.util.Locale;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,7 +21,17 @@ public class CommandProcessor {
 
         int plateauXLimit = Integer.parseInt(matcher.group("x"));
         int plateauYLimit = Integer.parseInt(matcher.group("y"));
-        Plateau plateau = Plateau.getInstance(plateauXLimit, plateauYLimit);
+
+        Plateau plateau = null;
+        try {
+            plateau = Plateau.getInstance(plateauXLimit, plateauYLimit);
+        } catch (InvalidPlateauLimitsException e) {
+            System.out.println(e);
+            return null;
+        } catch (Exception e) {
+            System.out.println("Unknown exception occurred: " + e);
+            return null;
+        }
 
         String roversDetails = matcher.group("rovers");
 

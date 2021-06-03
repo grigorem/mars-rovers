@@ -9,13 +9,20 @@ public class Plateau {
     private ArrayList<Rover> rovers = new ArrayList<>();
 
     /* constructors */
-    private Plateau(int x, int y) {
+    private Plateau(int x, int y) throws InvalidPlateauLimitsException {
+        if (x <= 0) {
+            throw new InvalidPlateauLimitsException("X = " + x);
+        }
+        if (y <= 0) {
+            throw new InvalidPlateauLimitsException("Y = " + y);
+        }
+
         setxLimit(x);
         setyLimit(y);
     }
 
     /* public methods */
-    public static Plateau getInstance(int x, int y) {
+    public static Plateau getInstance(int x, int y) throws InvalidPlateauLimitsException {
         if (plateau == null) {
             plateau = new Plateau(x, y);
         }
@@ -24,7 +31,11 @@ public class Plateau {
 
     public static Plateau getInstance() {
         if (plateau == null) {
-            plateau = new Plateau(0, 0); // create an empty plateau
+            try {
+                plateau = new Plateau(10, 10); // create a 10 by 10 plateau
+            } catch (InvalidPlateauLimitsException e) {
+                // do nothing
+            }
         }
         return plateau;
     }
